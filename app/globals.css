@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,16 +20,44 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #394b33;
+  font-family: "Cabin", sans-serif;
+  font-size: 1.1111111111vw;
+  font-weight: 400;
+  line-height: 1.2; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.btn-half-round {
+  @apply relative inline-block py-2 px-4 rounded-full border border-green-900 text-[#394b33] transition-all duration-500;
+  overflow: hidden;
+}
+
+.btn-half-round::before {
+  content: '';
+  @apply absolute inset-0 bg-[#394b33] transition-transform duration-500;
+  transform: translateX(-100%);
+  z-index: 0;
+}
+
+.btn-half-round:hover::before {
+  transform: translateX(0);
+}
+
+.btn-half-round:hover {
+  color: #f2ecdc;
+}
+
+.btn-half-round span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s;
 }
